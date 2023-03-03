@@ -1,8 +1,9 @@
+
 const http = require("http");
 const path = require("path");
 const express = require("express");
 const app = express();
-const pdp = path.join(__dirname,"./");
+const pdp = path.join(__dirname,"./public");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const multer = require("multer");
