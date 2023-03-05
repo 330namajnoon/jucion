@@ -5,6 +5,7 @@ export default function createElement(
         id:"",
         className:"",
         innerHtml:"",
+        style:"",
         atrubuts:[
             {
                 name:"",
@@ -19,6 +20,7 @@ export default function createElement(
             data.id ? newElement.id = data.id : null;
             data.className ? newElement.className = data.className : null;
             data.innerHtml ? newElement.innerHTML = data.innerHtml : null;
+            data.style ? newElement.style.cssText = data.style : null;
             data.atrubuts ? data.atrubuts.forEach(e => {
                 newElement.setAttribute(e.name,e.value);
             }):null;
