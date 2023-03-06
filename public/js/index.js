@@ -1,5 +1,5 @@
-import Game from "../components/game.js";
-import Control from "../components/control.js";
+import Game from "../components/game/game.js";
+import Control from "../components/control/control.js";
 import levels from "./levels.js";
 function Index() {
     this.level = levels[0];
