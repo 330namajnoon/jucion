@@ -15,13 +15,7 @@ const levels = [
         flight: {x:3,y:1,r:1},
         stars:[{x:10,y:8}],
         functions:[
-            {name:"F1",f:[1,2,3,4]},
-            {name:"F2",f:[1,2,3,4,5]},
-        ],
-        controls: [
-            ["lr","le","ld","cr"],
-            ["pr","pv","pa","cv"],
-            ["f1","F2","__","__"],
+            {name:"F1",n:4}
         ]
     }
 ]
