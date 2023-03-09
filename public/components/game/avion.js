@@ -19,18 +19,19 @@ export default function Avion(pos) {
 }
 Avion.prototype.set = function(grid) {
     this.grid = grid;
+    this.home = "";
     let back = grid[this.posicion.y].back.children[this.posicion.x];
     this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg)`});
 } 
-Avion.prototype.permiso = function() {
+Avion.prototype.permiso = function(color,act) {
     let m = "";
-    
-    this.mover(m);
+   
+    this.mover(act);
 }
 Avion.prototype.mover = function(m) {
     this.avion.remove();
     switch (m) {
-        case "r":
+        case "lr":
             switch (this.posicion.r) {
                 case 0:
                     this.posicion.y -= 1;
@@ -47,14 +48,15 @@ Avion.prototype.mover = function(m) {
             }
             
             break;
-        case "d":
+        case "ld":
             if(this.posicion.r >= 3){
                 this.posicion.r = 0;
             }else {
                 this.posicion.r ++;
             }
             break;
-        case "e":
+        case "le":
+            console.log("soy le");
             if(this.posicion.r <= 0){
                 this.posicion.r = 3;
             }else {
@@ -62,6 +64,6 @@ Avion.prototype.mover = function(m) {
             }
             break;
     }
-    let back = this.grid[this.posicion.y].back.children[this.posicion.x];
-    this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg)`});
+    this.home = this.grid[this.posicion.y].back.children[this.posicion.x];
+    this.avion = createElement(this.home,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg)`});
 }

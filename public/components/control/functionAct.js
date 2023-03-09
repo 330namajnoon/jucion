@@ -1,16 +1,18 @@
 import createElement from "../../js/createElement.js";
 
-export default function Recto(back,name,getFS,p,avionPermiso) {
+export default function FunctionAct(back,name,getFS,p,avionPermiso,addFunction = null) {
+    this.getFunction = getFS;
+    this.addFunction = addFunction;
     this.avionPermiso = avionPermiso;
     this.name = name;
     this.color = "cb";
     this.back = createElement(back,{tagName:"div",className:"c_back"});
-    this.icon = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"vertical_align_top",id:"c_icon"});
+    this.icon = createElement(this.back,{tagName:"h6",innerHtml:name,id:"c_icon"});
 
     this.back.addEventListener("click",()=> {
         if(p){
             console.log(getFS())
-            getFS().control = new Recto(getFS().back,this.name,getFS,false);
+            getFS().control = new FunctionAct(getFS().back,this.name,getFS,false);
         }
     })
 
@@ -19,7 +21,7 @@ export default function Recto(back,name,getFS,p,avionPermiso) {
         this.icon.id = "c_icon2";
     }
 }
-Recto.prototype.setColor = function(c) {
+FunctionAct.prototype.setColor = function(c) {
     this.color = c;
     switch (c) {
         case "cv":
@@ -33,7 +35,12 @@ Recto.prototype.setColor = function(c) {
             break;
     }
 }
-
-Recto.prototype.action = function() {
+FunctionAct.prototype.action = function() {
+    
+    this.getFunction().forEach(f => {
+        if(f.name.innerHTML == this.name) {
+            this.addFunction(f,this.getFunction);
+        }
+    });
     this.avionPermiso(this.color,this.name);
 }

@@ -1,6 +1,7 @@
 import createElement from "../../js/createElement.js";
 
 export default function Ezquierda(back,name,getFS,p,avionPermiso) {
+    this.avionPermiso = avionPermiso;
     this.name = name;
     this.color = "cb";
     this.back = createElement(back,{tagName:"div",className:"c_back"});
@@ -31,4 +32,7 @@ Ezquierda.prototype.setColor = function(c) {
             this.back.style.cssText = "background-color: rgb(207, 15, 15)";
             break;
     }
+}
+Ezquierda.prototype.action = function() {
+    this.avionPermiso(this.color,this.name);
 }
