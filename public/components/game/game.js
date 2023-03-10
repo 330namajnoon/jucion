@@ -4,11 +4,12 @@ import Avion from "./avion.js";
 import Home from "./home.js";
 import Homes from "./homes.js";
 const body = document.querySelector("body");
-export default function  Game(index) {
+export default function  Game(index,indexContext) {
     this.index = index;
-    this.avion = new Avion(index.level.flight);
+    this.avion = new Avion(index.level.flight,indexContext);
     this.back = createElement(document.body,{tagName:"div",className:"game_back"});
     this.grid = [];
+    indexContext.set("getGrid",this.getGrid.bind(this));
 }
 Game.prototype.setGrid = function() {
    this.index.level.grid.forEach(y_ => {
@@ -16,6 +17,7 @@ Game.prototype.setGrid = function() {
         y_.forEach(x_ => {
             let x = new Home(homes.back,this);
             x.setColor(x_);
+            homes.homes.push(x);
         })
         this.grid.push(homes);
     })
@@ -24,4 +26,7 @@ Game.prototype.setGrid = function() {
         let back = this.grid[s.y].back.children[s.x];
         createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"star",id:"star"});
     })
+}
+Game.prototype.getGrid = function() {
+    return this.grid;
 }

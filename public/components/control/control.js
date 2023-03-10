@@ -1,46 +1,21 @@
 import createElement from "../../js/createElement.js";
-import Function from "./function.js";
 import Play from "./play.js";
-import Recto from "./recto.js";
-import Ezquierda from "./ezquierda.js";
-import Derecha from "./derecha.js";
-import FunctionAct from "./functionAct.js"
-export default function Control(index,avionPermiso,indexContext) {
+import Function from "./function.js";
+import Controls from "./controls.js";
+export default function Control(level,indexContext) {
+    this.indexContext = indexContext;
     this.functionSelectada = false;
     this.back = createElement(document.body,{tagName:"div",className:"control_back"});
-    this.play = new Play(this.back,this.getFunctions.bind(this),avionPermiso);
-    this.functions = index.level.functions.map(f => new Function(this.back,f,this.setFS.bind(this)));
-    this.controlsBack = createElement(this.back,{tagName:"div",className:"controls_back"});
-    this.controls = index.level.controls.map(cy => {
-        let controls = cy.map(sx => {
-            let c;
-            switch (sx) {
-                case "lr":
-                    c = new Recto(this.controlsBack,sx,this.getFS.bind(this),true,avionPermiso);
-                    break;
-                case "le":
-                    c = new Ezquierda(this.controlsBack,sx,this.getFS.bind(this),true,avionPermiso);
-                    break;
-                case "ld":
-                    c = new Derecha(this.controlsBack,sx,this.getFS.bind(this),true,avionPermiso);
-                    break;
-                case "F1" || "F2" || "F3" || "F4" :
-                    c = new FunctionAct(this.controlsBack,sx,this.getFS.bind(this),true,avionPermiso);
-                    break;
-            
-                default:
-                    break;
-            }
-        });
-        return controls
-    })
+    this.play = new Play(this.back);
+    this.functions = level.functions.map(f => new Function(this.back,f,indexContext));
+    this.controls = new Controls(this.back,level.controls,indexContext);
+  
+    indexContext.set("setFS",this.setFS.bind(this));
+    indexContext.set("getFS",this.getFS.bind(this));
 }
 Control.prototype.setFS = function(f) {
     this.functionSelectada = f;
 }
-Control.prototype.getFS = function() {
+Control.prototype.getFS = function(f) {
     return this.functionSelectada;
-}
-Control.prototype.getFunctions = function() {
-    return this.functions;
 }

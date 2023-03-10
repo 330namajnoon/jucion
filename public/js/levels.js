@@ -21,7 +21,7 @@ const levels = [
         controls: [
             ["lr","le","ld","cr"],
             ["pr","pv","pa","cv"],
-            ["F1","F2","__","__"],
+            ["F1","F2","__","ca"],
         ]
     }
 ]

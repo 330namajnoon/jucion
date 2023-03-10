@@ -1,69 +1,23 @@
 import createElement from "../../js/createElement.js";
 
-export default function Avion(pos) {
+export default function Avion(pos,indexContext) {
     this.grid = [];
     this.posicion = pos;
     this.avion = {};
-
-    window.addEventListener("click",(e)=> {
-        if(e.pageY < innerHeight/2) {
-            this.mover("r");
-        }
-        if(e.pageY > innerHeight/2 && e.pageX > innerWidth/2) {
-            this.mover("d");
-        }
-        if(e.pageY > innerHeight/2 && e.pageX < innerWidth/2) {
-            this.mover("e");
-        }
-    })
+    indexContext.set("getAvion",this.getAvion.bind(this));
+    indexContext.set("getAvionBack",this.getAvionBack.bind(this));
 }
 Avion.prototype.set = function(grid) {
     this.grid = grid;
     this.home = "";
-    let back = grid[this.posicion.y].back.children[this.posicion.x];
+    let back = grid[this.posicion.y].homes[this.posicion.x].back;
     this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg)`});
 } 
-Avion.prototype.permiso = function(color,act) {
-    let m = "";
-   
-    this.mover(act);
+Avion.prototype.getAvionBack = function(grid) {
+    return grid[this.posicion.y].homes[this.posicion.x];
 }
-Avion.prototype.mover = function(m) {
-    this.avion.remove();
-    switch (m) {
-        case "lr":
-            switch (this.posicion.r) {
-                case 0:
-                    this.posicion.y -= 1;
-                    break; 
-                case 1:
-                    this.posicion.x += 1;
-                    break; 
-                case 2:
-                    this.posicion.y += 1;
-                    break; 
-                case 3:
-                    this.posicion.x -= 1;
-                    break;    
-            }
-            
-            break;
-        case "ld":
-            if(this.posicion.r >= 3){
-                this.posicion.r = 0;
-            }else {
-                this.posicion.r ++;
-            }
-            break;
-        case "le":
-            console.log("soy le");
-            if(this.posicion.r <= 0){
-                this.posicion.r = 3;
-            }else {
-                this.posicion.r -= 1;
-            }
-            break;
-    }
-    this.home = this.grid[this.posicion.y].back.children[this.posicion.x];
-    this.avion = createElement(this.home,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg)`});
+Avion.prototype.getAvion = function() {
+    return {avion:this.avion,posicion:this.posicion};
 }
+
+
