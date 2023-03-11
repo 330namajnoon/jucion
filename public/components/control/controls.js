@@ -36,20 +36,72 @@ export default function Controls(back,data,indexContext) {
                     break;
                 case "pv":
                     let pv = createElement(this.back,{tagName:"span",innerHtml:"format_paint",className:"material-symbols-rounded",id:"c_icon"});
-                    control2.addEventListener("click",()=> {
+                    pv.style.color = "rgb(12, 138, 33)";
+                    pv.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
                         fs.back.innerHTML = "";
-                        fs.control = new FunctionF(fs.back,control2.cloneNode(true),c);
+                        fs.control = new FunctionF(fs.back,pv.cloneNode(true),c);
                     })
-                    this.controls.push(control2);
+                    this.controls.push(pv);
                     break;
+                    case "pr":
+                        let pr = createElement(this.back,{tagName:"span",innerHtml:"format_paint",className:"material-symbols-rounded",id:"c_icon"});
+                        pr.style.color = "rgb(235, 45, 45)";
+                        pr.addEventListener("click",()=> {
+                            let fs = indexContext.get("getFS")();
+                            fs.back.innerHTML = "";
+                            fs.control = new FunctionF(fs.back,pr.cloneNode(true),c);
+                        })
+                        this.controls.push(pr);
+                        break;  
+                        case "pa":
+                            let pa = createElement(this.back,{tagName:"span",innerHtml:"format_paint",className:"material-symbols-rounded",id:"c_icon"});
+                            pa.style.color = "rgb(29, 78, 212)";
+                            pa.addEventListener("click",()=> {
+                                let fs = indexContext.get("getFS")();
+                                fs.back.innerHTML = "";
+                                fs.control = new FunctionF(fs.back,pa.cloneNode(true),c);
+                            })
+                            this.controls.push(pa);
+                            break;  
+                            case "F1":
+                                let fun = createElement(this.back,{tagName:"h3",innerHtml:c,id:"c_icon"});
+                                fun.addEventListener("click",()=> {
+                                    let fs = indexContext.get("getFS")();
+                                    fs.back.innerHTML = "";
+                                    fs.control = new FunctionF(fs.back,fun.cloneNode(true),c);
+                                })
+                                this.controls.push(fun);
+                                break; 
+                                case "F2":
+                                    let fun2 = createElement(this.back,{tagName:"h3",innerHtml:c,id:"c_icon"});
+                                    fun2.addEventListener("click",()=> {
+                                        let fs = indexContext.get("getFS")();
+                                        fs.back.innerHTML = "";
+                                        fs.control = new FunctionF(fs.back,fun2.cloneNode(true),c);
+                                    })
+                                    this.controls.push(fun2);
+                                    break;  
+                                    case "F3":
+                                    let fun3 = createElement(this.back,{tagName:"h3",innerHtml:c,id:"c_icon"});
+                                    fun3.addEventListener("click",()=> {
+                                        let fs = indexContext.get("getFS")();
+                                        fs.back.innerHTML = "";
+                                        fs.control = new FunctionF(fs.back,fun3.cloneNode(true),c);
+                                    })
+                                    this.controls.push(fun3);
+                                    break;    
+                                    case "__":
+                                        let none = createElement(this.back,{tagName:"h3",id:"c_icon"});
+                                        this.controls.push(none);
+                                        break;    
                 case "cr":
                     let cr = createElement(this.back,{tagName:"div",id:"c_icon"});
                     cr.style.cssText = "background-color: rgb(235, 45, 45);";
                     cr.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
                         if(fs.control) {
-                            fs.control.setColor("rgb(235, 45, 45)")
+                            fs.control.setColor("rgb(235, 45, 45)",c)
                         }
                     })
                     this.controls.push(cr);
@@ -60,7 +112,7 @@ export default function Controls(back,data,indexContext) {
                     cv.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
                         if(fs.control) {
-                            fs.control.setColor("rgb(12, 138, 33)")
+                            fs.control.setColor("rgb(12, 138, 33)",c)
                         }
                     })
                     this.controls.push(cv);
@@ -71,7 +123,7 @@ export default function Controls(back,data,indexContext) {
                     ca.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
                         if(fs.control) {
-                            fs.control.setColor("rgb(29, 78, 212")
+                            fs.control.setColor("rgb(29, 78, 212",c)
                         }
                     })
                     this.controls.push(ca);

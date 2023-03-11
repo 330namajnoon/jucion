@@ -1,14 +1,42 @@
 import createElement from "../../js/createElement.js";
-export default function Play(back) {
+import PlayFunction from "./playFunctions.js";
+
+export default function Play(back,indexContext) {
+    this.spid = 1;
     this.back = createElement(back,{tagName:"div",className:"play_back"});
-    this.play = createElement(this.back,{tagName:"div",className:"play"});
+    this.play = new PlayFunction(this.back,indexContext);
     this.playButton = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"play_arrow",id:"play_span"});
+    this.spidDisplay = createElement(this.back,{tagName:"h6",className:"spid",innerHtml:this.spid})
     this.playButton.addEventListener("click",(e)=> {
         if(this.playButton.innerHTML == "play_arrow") {
             this.playButton.innerHTML = "pause";
-            this.addFunctions(getFunctions()[0],getFunctions);
+            if(this.play.play) {
+                this.play.addFunctions(indexContext.get("getFunctions")()[0]);
+            }else {
+                this.play.play = true;
+                this.play.playAction(0);
+            }    
         }else{ 
             this.playButton.innerHTML = "play_arrow"; 
+            this.play.play = false;
         }    
     })
+
+    this.spidDisplay.addEventListener("click",()=> {
+        this.setSpid();
+        this.spidDisplay.innerHTML = this.spid;
+    })
+
+    indexContext.set("getSpid",this.getSpid.bind(this));
+    
+}
+Play.prototype.setSpid = function() {
+    if(this.spid > 0.25) {
+        this.spid = this.spid/2;
+    }else {
+        this.spid = 1;
+    }
+}
+Play.prototype.getSpid = function() {
+   return this.spid;
 }

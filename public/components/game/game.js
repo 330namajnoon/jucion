@@ -5,11 +5,14 @@ import Home from "./home.js";
 import Homes from "./homes.js";
 const body = document.querySelector("body");
 export default function  Game(index,indexContext) {
+    this.indexContext = indexContext;
     this.index = index;
+    this.stars = index.level.stars.length;
     this.avion = new Avion(index.level.flight,indexContext);
     this.back = createElement(document.body,{tagName:"div",className:"game_back"});
     this.grid = [];
     indexContext.set("getGrid",this.getGrid.bind(this));
+    indexContext.set("checkStars",this.checkStars.bind(this));
 }
 Game.prototype.setGrid = function() {
    this.index.level.grid.forEach(y_ => {
@@ -29,4 +32,11 @@ Game.prototype.setGrid = function() {
 }
 Game.prototype.getGrid = function() {
     return this.grid;
+}
+Game.prototype.checkStars = function() {
+    if(this.stars > 1) {
+        this.stars--;
+    }else {
+        this.indexContext.get("ganar")();
+    }    
 }
