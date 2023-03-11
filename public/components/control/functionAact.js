@@ -16,6 +16,8 @@ FunctionAct.prototype.action = function() {
             this.indexContext.get("getFunctions")().forEach(fs => {
                 if(fs.name.innerHTML == this.name) this.indexContext.get("addFunctions")(fs);
             });
+        }else {
+            this.indexContext.get("playAction")(0);
         }
     }, this.indexContext.get("getSpid")()*1000);
 }

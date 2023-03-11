@@ -7,7 +7,6 @@ export default function FunctionFH(back,data,indexContext) {
     this.back.addEventListener("click",()=> {
         indexContext.get("setFS")(this);
         if(!this.select) {
-            console.log(indexContext.get("getFunctions")());
             indexContext.get("getFunctions")().forEach(fs => {
                 fs.functions.forEach(fc => {
                     fc.back.style.boxShadow = "inset 0 0 2px 1px rgb(66, 66, 66)";

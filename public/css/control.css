@@ -21,7 +21,7 @@
 }
 
 .play {
-    width: 70%;
+    width: 60%;
     height: 9vw;
     border: solid 0.5vw rgba(128, 128, 128, 0.295);
     border-radius: 0.5vw;
@@ -154,4 +154,16 @@
     margin-left: .5vw;
     border: solid .5vw gray;
     border-radius: 1vw;
+}
+
+#stop {
+    font-size: 8vw;
+    color: red;
+    margin-right: 2vw;
+    border: solid .5vw gray;
+    border-radius: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

@@ -3,6 +3,7 @@ import Recto from "./recto.js";
 import Ezquierda from "./ezquierda.js";
 import Derecha from "./derecha.js";
 import FunctionAct from "./functionAact.js";
+import Pintar from "./pintar.js";
 export default function PlayFunction(back,indexContext) {
     this.play = true;
     this.indexContext = indexContext;
@@ -50,6 +51,18 @@ PlayFunction.prototype.addFunctions = function(functions) {
                     break;
                     case "F3":
                         control = new FunctionAct(this.back,f.control.name,f.control.color,this.indexContext);
+                        control.setColor(f.control.back.style.backgroundColor);
+                    break;
+                    case "pr":
+                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color,this.indexContext);
+                        control.setColor(f.control.back.style.backgroundColor);
+                    break;
+                    case "pv":
+                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color,this.indexContext);
+                        control.setColor(f.control.back.style.backgroundColor);
+                    break;
+                    case "pa":
+                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color,this.indexContext);
                         control.setColor(f.control.back.style.backgroundColor);
                     break;
 

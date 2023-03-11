@@ -10,9 +10,10 @@ export default function Controls(back,data,indexContext) {
                     let control = createElement(this.back,{tagName:"span",innerHtml:"vertical_align_top",className:"material-symbols-rounded",id:"c_icon"});
                     control.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
-                        fs.back.innerHTML = "";
-                        fs.control = new FunctionF(fs.back,control.cloneNode(true),c);
-                        
+                        if(fs) {
+                            fs.back.innerHTML = "";
+                            fs.control = new FunctionF(fs.back,control.cloneNode(true),c);
+                        }
                     })
                     this.controls.push(control);
                     break;
@@ -101,7 +102,12 @@ export default function Controls(back,data,indexContext) {
                     cr.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
                         if(fs.control) {
-                            fs.control.setColor("rgb(235, 45, 45)",c)
+                            if(fs.control.color !== c) {
+                                fs.control.setColor("rgb(235, 45, 45)",c)
+                            }else {
+                                fs.control.setColor("rgba(128, 128, 128, 0)","cb")
+                            }
+                            
                         }
                     })
                     this.controls.push(cr);
@@ -112,7 +118,11 @@ export default function Controls(back,data,indexContext) {
                     cv.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
                         if(fs.control) {
-                            fs.control.setColor("rgb(12, 138, 33)",c)
+                            if(fs.control.color !== c) {
+                                fs.control.setColor("rgb(12, 138, 33)",c)
+                            }else {
+                                fs.control.setColor("rgba(128, 128, 128, 0)","cb")
+                            }
                         }
                     })
                     this.controls.push(cv);
@@ -123,7 +133,11 @@ export default function Controls(back,data,indexContext) {
                     ca.addEventListener("click",()=> {
                         let fs = indexContext.get("getFS")();
                         if(fs.control) {
-                            fs.control.setColor("rgb(29, 78, 212",c)
+                            if(fs.control.color !== c) {
+                                fs.control.setColor("rgb(29, 78, 212",c);
+                            }else {
+                                fs.control.setColor("rgba(128, 128, 128, 0)","cb");
+                            }
                         }
                     })
                     this.controls.push(ca);

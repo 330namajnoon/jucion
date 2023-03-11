@@ -1,9 +1,9 @@
 import createElement from "../../js/createElement.js"
 
-export default function Home(back,index) {
-    this.index = index;
+export default function Home(back,level) {
+    this.level = level;
     this.color = "";
-    let yLength = this.index.index.level.grid[0].length;
+    let yLength = this.level.grid[0].length;
     this.back = createElement(back,{tagName:"div",className:"home",style:`width:${((innerWidth-(yLength*((innerWidth/100)*1.5)))/yLength)}px;height:${((innerWidth-(yLength*((innerWidth/100)*1.5)))/yLength)}px;`});
 }
 Home.prototype.setColor = function(color) {
