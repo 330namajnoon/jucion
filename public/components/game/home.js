@@ -16,7 +16,7 @@ Home.prototype.setColor = function(color) {
             this.back.style.cssText += "background-color: rgb(199, 43, 43)";
             break;
         case "a":
-            this.back.style.cssText += "background-color: rgb(29, 78, 212";
+            this.back.style.cssText += "background-color: rgb(29, 78, 212)";
             break;
         case " ":
             this.back.style.cssText += "background-color: rgb(255, 255, 255)";

@@ -1,5 +1,6 @@
 import createElement from "../../js/createElement.js";
 import PlayFunction from "./playFunctions.js";
+import Spid from "./spid.js";
 export default function Play(back,indexContext) {
     this.spid = 1;
     this.back = createElement(back,{tagName:"div",className:"play_back"});
@@ -7,7 +8,7 @@ export default function Play(back,indexContext) {
     this.play = new PlayFunction(this.back,indexContext);
     this.playButton = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"play_arrow",id:"play_span"});
     this.stop = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"stop",id:"stop",style:"display:none;"});
-    this.spidDisplay = createElement(this.back,{tagName:"h6",className:"spid",innerHtml:this.spid})
+    this.spidDisplay = new Spid(this.back,this.setSpid.bind(this));
     this.playButton.addEventListener("click",(e)=> {
         if(this.playButton.innerHTML == "play_arrow") {
             this.playButton.innerHTML = "pause";
@@ -32,20 +33,18 @@ export default function Play(back,indexContext) {
         this.stop.style.display = "none";
     })
 
-    this.spidDisplay.addEventListener("click",()=> {
-        this.setSpid();
-        this.spidDisplay.innerHTML = this.spid;
-    })
+   
 
     indexContext.set("getSpid",this.getSpid.bind(this));
     
 }
-Play.prototype.setSpid = function() {
+Play.prototype.setSpid = function(spid) {
     if(this.spid > 0.25) {
         this.spid = this.spid/2;
     }else {
         this.spid = 1;
     }
+    spid(this.spid);
 }
 Play.prototype.getSpid = function() {
    return this.spid;

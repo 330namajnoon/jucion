@@ -13,6 +13,13 @@ export default function Control(level,indexContext) {
     indexContext.set("setFS",this.setFS.bind(this));
     indexContext.set("getFS",this.getFS.bind(this));
     indexContext.set("getFunctions",this.getFunctions.bind(this));
+
+   
+}
+Control.prototype.setBackSize = function() {
+    let playP = this.play.back.getBoundingClientRect();
+    this.back.style.minHeight = `${innerHeight-(playP.y - (playP.height))}px`;
+    console.log(this.play.back)
 }
 Control.prototype.setFS = function(f) {
     this.functionSelectada = f;

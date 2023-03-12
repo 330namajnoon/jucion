@@ -6,6 +6,7 @@ function App() {
     this.levelNo = 9;
     this.index = new Index(this.levelNo,this.ganar.bind(this),this.fallar.bind(this));
     this.index.game.setGrid();
+    this.index.control.setBackSize();
 }
 App.prototype.ganar = function() {
     alert("Has ganado!!");

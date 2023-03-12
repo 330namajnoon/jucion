@@ -13,6 +13,10 @@ export default function  Game(level,indexContext) {
     this.grid = [];
     indexContext.set("getGrid",this.getGrid.bind(this));
     indexContext.set("checkStars",this.checkStars.bind(this));
+    indexContext.set("getGameBack",this.getBack.bind(this));
+}
+Game.prototype.getBack = function() {
+    return this.back;
 }
 Game.prototype.setGrid = function() {
    this.level.grid.forEach(y_ => {
