@@ -26,13 +26,12 @@
     justify-content: center;
 }
 #star {
-    color: white;
-    font-size: 7vw;
+    color: #F2CD5C;
     margin: 0;
 }
 #flight {
-    color: white;
-    font-size: 7vw;
+    color: #FAF8F1;
+    
     margin: 0;
     
 }

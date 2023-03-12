@@ -20,7 +20,8 @@ Avion.prototype.set = function(grid) {
         back.innerHTML = "";
         this.indexContext.get("checkStars")();
     }    
-    this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg)`});
+    this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg);font-size: ${innerWidth/(this.grid[0].homes.length*1.3)}px;`});
+    
     if(grid[this.posicion.y].homes[this.posicion.x].color == " ") {
         this.indexContext.get("fallar")();
     }
@@ -30,7 +31,7 @@ Avion.prototype.restart = function(levelNo) {
     let posicion = {...levels[levelNo].flight};
     this.posicion = posicion
     let back = this.grid[posicion .y].homes[posicion.x].back;
-    this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${posicion.r*90}deg)`});
+    this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${posicion.r*90}deg);font-size: ${innerWidth/(this.grid[0].homes.length*1.3)}px;`});
 }
 Avion.prototype.getAvionBack = function(grid) {
     return this.grid[this.posicion.y].homes[this.posicion.x];

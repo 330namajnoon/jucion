@@ -31,7 +31,7 @@ Game.prototype.setStars = function() {
     this.level.stars.forEach(s => {
         let back = this.grid[s.y].back.children[s.x];
         if(back.innerHTML == "") {
-            createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"star",id:"star"});
+            createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"star",id:"star",style:`font-size: ${innerWidth/(this.grid[0].homes.length*1.3)}px;`});
         }
         
     })

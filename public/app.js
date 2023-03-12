@@ -3,7 +3,7 @@ import levels from "./js/levels.js";
 import createElement from "./js/createElement.js";
 function App() {
     this.a = createElement(document.body,{tagName:"a",atrubuts:[{name:"href",value:"/"}]});
-    this.levelNo = 8;
+    this.levelNo = 9;
     this.index = new Index(this.levelNo,this.ganar.bind(this),this.fallar.bind(this));
     this.index.game.setGrid();
 }

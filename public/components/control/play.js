@@ -3,6 +3,7 @@ import PlayFunction from "./playFunctions.js";
 export default function Play(back,indexContext) {
     this.spid = 1;
     this.back = createElement(back,{tagName:"div",className:"play_back"});
+    this.terminal = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"terminal",id:"terminal"});
     this.play = new PlayFunction(this.back,indexContext);
     this.playButton = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"play_arrow",id:"play_span"});
     this.stop = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"stop",id:"stop",style:"display:none;"});
