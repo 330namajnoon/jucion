@@ -11,6 +11,12 @@ App.prototype.ganar = function() {
     setTimeout(() => {
         alert("Has ganado!!");
         document.body.innerHTML = "";
+        if(this.levelNo < levels.length) {
+            this.levelNo++;
+        }else {
+            this.levelNo = 1;
+        }
+        localStorage.setItem("level",this.levelNo);
         this.index = new Index(this.levelNo,this.ganar.bind(this),this.fallar.bind(this));
         this.index.game.setGrid();
         this.index.control.setBackSize();
