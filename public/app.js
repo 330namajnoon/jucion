@@ -3,7 +3,7 @@ import levels from "./js/levels.js";
 import createElement from "./js/createElement.js";
 function App() {
     this.a = createElement(document.body,{tagName:"a",atrubuts:[{name:"href",value:"/"}]});
-    this.levelNo = 9;
+    this.levelNo = 1;
     this.index = new Index(this.levelNo,this.ganar.bind(this),this.fallar.bind(this));
     this.index.game.setGrid();
     this.index.control.setBackSize();
@@ -16,7 +16,7 @@ App.prototype.ganar = function() {
     }else {
         this.levelNo = 1;
     }
-    // localStorage.setItem("level",this.levelNo);
+    localStorage.setItem("level",this.levelNo);
     this.a.click();
     
 }
