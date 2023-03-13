@@ -2,7 +2,7 @@ import Index from "./js/index.js";
 import levels from "./js/levels.js";
 import createElement from "./js/createElement.js";
 function App() {
-    this.levelNo = localStorage.getItem("level") || 1;
+    this.levelNo =  10;
     this.index = new Index(this.levelNo,this.ganar.bind(this),this.fallar.bind(this));
     this.index.game.setGrid();
     this.index.control.setBackSize();

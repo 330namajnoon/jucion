@@ -4,7 +4,7 @@ export default function Home(back,level) {
     this.level = level;
     this.color = "";
     let yLength = this.level.grid[0].length;
-    this.back = createElement(back,{tagName:"div",className:"home",style:`width:${((innerWidth-(yLength*((innerWidth/100)*1.5)))/yLength)}px;height:${((innerWidth-(yLength*((innerWidth/100)*1.5)))/yLength)}px;`});
+    this.back = createElement(back,{tagName:"div",className:"home",style:`width:${((innerWidth-(yLength*((innerWidth/100)*1.5)))/yLength)}px;height:${((innerWidth-(yLength*((innerWidth/100)*1.5)))/yLength)}px;border-radius: ${innerWidth/(yLength*8)}px;margin: 0px 0 ${innerWidth/(yLength*10)}px ${innerWidth/(yLength*10)}px`});
 }
 Home.prototype.setColor = function(color) {
     this.color = color;

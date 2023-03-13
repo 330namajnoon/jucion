@@ -39,7 +39,7 @@ export default function Play(back,indexContext) {
     
 }
 Play.prototype.setSpid = function(spid) {
-    if(this.spid > 0.25) {
+    if(this.spid > 0.12) {
         this.spid = this.spid/2;
     }else {
         this.spid = 1;

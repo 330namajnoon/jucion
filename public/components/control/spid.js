@@ -25,6 +25,9 @@ export default function Spid(back,setSpid) {
                         case 0.25:
                             this.spidCenter.style.cssText = `transform: rotate(${60}deg)`
                             break;
+                            case 0.12:
+                            this.spidCenter.style.cssText = `transform: rotate(${90}deg)`
+                            break;
             }
         })
     })
