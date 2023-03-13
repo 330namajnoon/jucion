@@ -9,6 +9,7 @@ function App() {
 }
 App.prototype.ganar = function() {
     setTimeout(() => {
+        this.index.control.play.playButton.click();
         alert("Has ganado!!");
         document.body.innerHTML = "";
         if(this.levelNo < levels.length) {
@@ -20,17 +21,18 @@ App.prototype.ganar = function() {
         this.index = new Index(this.levelNo,this.ganar.bind(this),this.fallar.bind(this));
         this.index.game.setGrid();
         this.index.control.setBackSize();
-    }, 100);
+    }, 10);
    
     
 }
 App.prototype.fallar = function() {
     setTimeout(() => {
+        this.index.control.play.playButton.click();
         alert("Has fallado!!");
         this.index.game.setStars();
         this.index.control.play.stop.click();
         this.index.game.avion.restart(this.levelNo-1);
-    }, 100);
+    }, 10);
     
 }
 
