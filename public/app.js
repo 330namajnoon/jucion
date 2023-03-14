@@ -31,6 +31,7 @@ App.prototype.fallar = function() {
         alert("Has fallado!!");
         this.index.game.setStars();
         this.index.control.play.stop.click();
+        this.index.control.play.play = false;
         this.index.game.avion.restart(this.levelNo-1);
     }, 10);
     

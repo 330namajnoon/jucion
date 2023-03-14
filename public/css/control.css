@@ -29,6 +29,7 @@ body {
     border-bottom: solid .5vw rgb(73, 125, 12);
     border-top: solid .5vw rgb(73, 125, 12);
     box-sizing: border-box;
+    justify-content: space-around;
 }
 #terminal {
     font-size: 14vw;
@@ -36,7 +37,7 @@ body {
 }
 
 .play {
-    width: 60%;
+    width: 50%;
     height: 9vw;
     border: solid 0.5vw rgba(128, 128, 128, 0.461);
     border-radius: 0.5vw;
