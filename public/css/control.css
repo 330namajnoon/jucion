@@ -39,7 +39,7 @@ body {
 .play {
     width: 50%;
     height: 9vw;
-    border: solid 0.5vw rgba(128, 128, 128, 0.461);
+    /* border: solid 0.5vw rgba(128, 128, 128, 0.461); */
     border-radius: 0.5vw;
     display: flex;
     flex-direction: row;
