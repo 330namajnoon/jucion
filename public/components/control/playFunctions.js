@@ -4,9 +4,9 @@ import Ezquierda from "./ezquierda.js";
 import Derecha from "./derecha.js";
 import FunctionAct from "./functionAact.js";
 import Pintar from "./pintar.js";
-export default function PlayFunction(back,indexContext) {
+import indexContext from "../../contexts/indexContext.js";
+export default function PlayFunction(back) {
     this.play = true;
-    this.indexContext = indexContext;
     this.back = createElement(back,{tagName:"div",className:"play"});
     this.functions = [];
     indexContext.set("functionRemove",this.remove.bind(this));
@@ -30,39 +30,39 @@ PlayFunction.prototype.addFunctions = function(functions) {
             let control;
             switch (f.control.name) {
                 case "lr":
-                    control = new Recto(this.back,f.control.name,f.control.color,this.indexContext);
+                    control = new Recto(this.back,f.control.name,f.control.color);
                     control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "le":
-                    control = new Ezquierda(this.back,f.control.name,f.control.color,this.indexContext);
+                    control = new Ezquierda(this.back,f.control.name,f.control.color);
                     control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "ld":
-                    control = new Derecha(this.back,f.control.name,f.control.color,this.indexContext);
+                    control = new Derecha(this.back,f.control.name,f.control.color);
                     control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "F1":
-                        control = new FunctionAct(this.back,f.control.name,f.control.color,this.indexContext);
+                        control = new FunctionAct(this.back,f.control.name,f.control.color);
                         control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "F2":
-                        control = new FunctionAct(this.back,f.control.name,f.control.color,this.indexContext);
+                        control = new FunctionAct(this.back,f.control.name,f.control.color);
                         control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "F3":
-                        control = new FunctionAct(this.back,f.control.name,f.control.color,this.indexContext);
+                        control = new FunctionAct(this.back,f.control.name,f.control.color);
                         control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "pr":
-                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color,this.indexContext);
+                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color);
                         control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "pv":
-                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color,this.indexContext);
+                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color);
                         control.setColor(f.control.back.style.backgroundColor);
                     break;
                     case "pa":
-                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color,this.indexContext);
+                        control = new Pintar(this.back,f.control.name,f.control.color,f.control.back.style.color);
                         control.setColor(f.control.back.style.backgroundColor);
                     break;
 

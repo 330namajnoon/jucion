@@ -1,6 +1,7 @@
 import createElement from "../../js/createElement.js";
 import FunctionF from "./functionF.js";
-export default function Controls(back,data,indexContext) {
+import indexContext from "../../contexts/indexContext.js";
+export default function Controls(back,data) {
     this.back = createElement(back,{tagName:"div",className:"controls_back"});
     this.controls = [];
     data.forEach(y => {

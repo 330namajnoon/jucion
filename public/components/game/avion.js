@@ -1,8 +1,7 @@
 import createElement from "../../js/createElement.js";
 import levels from "../../js/levels.js";
-
-export default function Avion(pos,indexContext) {
-    this.indexContext = indexContext;
+import indexContext from "../../contexts/indexContext.js";
+export default function Avion(pos) {
     this.grid = [];
     this.posicion = pos;
     this.avion = {};
@@ -18,12 +17,12 @@ Avion.prototype.set = function(grid) {
   
     if(back.innerHTML !== "") {
         back.innerHTML = "";
-        this.indexContext.get("checkStars")();
+        indexContext.get("checkStars")();
     }    
     this.avion = createElement(back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"flight",id:"flight",style:`transform: rotate(${this.posicion.r*90}deg);font-size: ${innerWidth/(this.grid[0].homes.length*1.3)}px;`});
     
     if(grid[this.posicion.y].homes[this.posicion.x].color == " ") {
-        this.indexContext.get("fallar")();
+        indexContext.get("fallar")();
     }
 } 
 Avion.prototype.restart = function(levelNo) {

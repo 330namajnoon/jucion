@@ -1,11 +1,12 @@
 import createElement from "../../js/createElement.js";
 import PlayFunction from "./playFunctions.js";
 import Spid from "./spid.js";
-export default function Play(back,indexContext) {
+import indexContext from "../../contexts/indexContext.js";
+export default function Play(back) {
     this.spid = 1;
     this.back = createElement(back,{tagName:"div",className:"play_back"});
     this.terminal = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"terminal",id:"terminal"});
-    this.play = new PlayFunction(this.back,indexContext);
+    this.play = new PlayFunction(this.back);
     this.playButton = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"play_arrow",id:"play_span"});
     this.stop = createElement(this.back,{tagName:"span",className:"material-symbols-rounded",innerHtml:"stop",id:"stop",style:"display:none;"});
     this.spidDisplay = new Spid(this.back,this.setSpid.bind(this));

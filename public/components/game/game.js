@@ -3,12 +3,12 @@ import index from "../../js/index.js";
 import Avion from "./avion.js";
 import Home from "./home.js";
 import Homes from "./homes.js";
+import indexContext from "../../contexts/indexContext.js";
 const body = document.querySelector("body");
-export default function  Game(level,indexContext) {
-    this.indexContext = indexContext;
+export default function  Game(level) {
     this.level = level;
     this.stars = level.stars.length;
-    this.avion = new Avion({...level.flight},indexContext);
+    this.avion = new Avion({...level.flight});
     this.back = createElement(document.body,{tagName:"div",className:"game_back"});
     this.grid = [];
     indexContext.set("getGrid",this.getGrid.bind(this));
@@ -47,6 +47,6 @@ Game.prototype.checkStars = function() {
     if(this.stars > 1) {
         this.stars--;
     }else {
-        this.indexContext.get("ganar")();
+        indexContext.get("ganar")();
     }    
 }

@@ -1,0 +1,34 @@
+
+.confirm_back {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.838);
+    position: absolute;
+    z-index: 100;
+    margin: auto;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.confirm_msg {
+    color: white;
+    font-size: 7vw;
+}
+.confirm_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.confirm_buttons input {
+    width: 30vw;
+    height: 10vw;
+    border: 0;
+    border-radius: 1vw;
+    font-size: 4vw;
+    background-color: rgb(64, 64, 64);
+    color: white;
+}

@@ -30,7 +30,7 @@ body {
     border-top: solid .5vw rgb(73, 125, 12);
     box-sizing: border-box;
     justify-content: space-around;
-}
+} 
 #terminal {
     font-size: 14vw;
     color: rgb(129, 129, 129);

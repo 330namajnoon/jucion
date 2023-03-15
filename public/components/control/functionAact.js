@@ -1,7 +1,6 @@
 import createElement from "../../js/createElement.js";
-
-export default function FunctionAct(back,name,color,indexContext) {
-    this.indexContext = indexContext;
+import indexContext from "../../contexts/indexContext.js";
+export default function FunctionAct(back,name,color) {
     this.name = name;
     this.color = color;
     this.icon = createElement(back,{tagName:"h3",innerHtml:name,id:"c_icon4"});
@@ -11,13 +10,13 @@ FunctionAct.prototype.setColor = function(color) {
 }
 FunctionAct.prototype.action = function() {
     setTimeout(() => {
-        this.indexContext.get("functionRemove")(0);
-        if(this.color.includes(this.indexContext.get("getAvionBack")().color) || this.color == "cb") {
-            this.indexContext.get("getFunctions")().forEach(fs => {
-                if(fs.name.innerHTML == this.name) this.indexContext.get("addFunctions")(fs);
+        indexContext.get("functionRemove")(0);
+        if(this.color.includes(indexContext.get("getAvionBack")().color) || this.color == "cb") {
+            indexContext.get("getFunctions")().forEach(fs => {
+                if(fs.name.innerHTML == this.name) indexContext.get("addFunctions")(fs);
             });
         }else {
-            this.indexContext.get("playAction")(0);
+            indexContext.get("playAction")(0);
         }
-    }, this.indexContext.get("getSpid")()*1000);
+    }, indexContext.get("getSpid")()*1000);
 }

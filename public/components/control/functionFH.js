@@ -1,6 +1,6 @@
 import createElement from "../../js/createElement.js";
-
-export default function FunctionFH(back,data,indexContext) {
+import indexContext from "../../contexts/indexContext.js";
+export default function FunctionFH(back,data) {
     this.select = false;
     this.back = createElement(back,{tagName:"div",className:"f_back"});
     this.control = false;

@@ -1,7 +1,6 @@
 import createElement from "../../js/createElement.js";
-
-export default function Pintar(back,name,color,pColor,indexContext) {
-    this.indexContext = indexContext;
+import indexContext from "../../contexts/indexContext.js";
+export default function Pintar(back,name,color,pColor) {
     this.name = name;
     this.color = color;
     this.pColor = pColor;
@@ -12,11 +11,11 @@ Pintar.prototype.setColor = function(color) {
 }
 Pintar.prototype.action = function() {
     setTimeout(() => {
-        if(this.color.includes(this.indexContext.get("getAvionBack")().color) || this.color == "cb") {
+        if(this.color.includes(indexContext.get("getAvionBack")().color) || this.color == "cb") {
             console.log(this.pColor.split("")[1])
-            this.indexContext.get("getAvionBack")().setColor(this.name.split("")[1]);
+            indexContext.get("getAvionBack")().setColor(this.name.split("")[1]);
         }
-        this.indexContext.get("functionRemove")(0);
-        this.indexContext.get("playAction")(0);
-    }, this.indexContext.get("getSpid")()*1000);
+        indexContext.get("functionRemove")(0);
+        indexContext.get("playAction")(0);
+    }, indexContext.get("getSpid")()*1000);
 }
