@@ -3,6 +3,7 @@ import levels from "./js/levels.js";
 import createElement from "./js/createElement.js";
 import indexContext from "./contexts/indexContext.js";
 import confirm from "./js/confirm.js";
+import descripcion from "./js/descripcion.js";
 
 
 
@@ -14,7 +15,7 @@ function App() {
     indexContext.set("ganar",this.ganar.bind(this));
     indexContext.set("fallar",this.fallar.bind(this));
 
-   
+    descripcion();
 }
 App.prototype.ganar = async function() {
     setTimeout(async () => {
