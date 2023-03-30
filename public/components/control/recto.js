@@ -10,7 +10,7 @@ Recto.prototype.setColor = function(color) {
 }
 Recto.prototype.action = function() {
     setTimeout(() => {
-        if(this.color.includes(indexContext.get("getAvionBack")().color) || this.color == "cb") {
+        if(this.color.includes(indexContext.get("getAvionBack")().color) || this.color == "cb" && indexContext.get("getPlayB")()) {
             indexContext.get("avionMuve")(this.name);
         }
         indexContext.get("functionRemove")(0);

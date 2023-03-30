@@ -12,6 +12,7 @@ export default function PlayFunction(back) {
     indexContext.set("functionRemove",this.remove.bind(this));
     indexContext.set("addFunctions",this.addFunctions.bind(this));
     indexContext.set("playAction",this.playAction.bind(this));
+    indexContext.set("getPlayB",this.getPlay.bind(this));
 }
 PlayFunction.prototype.remove = function(index) {
     if(this.functions.length > 0) {
@@ -78,6 +79,9 @@ PlayFunction.prototype.addFunctions = function(functions) {
     this.functions = newfunctions;
     
     this.playAction(0);
+}
+PlayFunction.prototype.getPlay = function() {
+    return this.play;
 }
 PlayFunction.prototype.playAction = function(index) {
     if(this.functions.length > 0 && this.play)this.functions[index].action();

@@ -16,6 +16,7 @@ export default function Play(back) {
             if(this.play.play) {
                 this.play.addFunctions(indexContext.get("getFunctions")()[0]);
                 this.stop.style.display = "block";
+               
             }else {
                 this.play.play = true;
                 this.play.playAction(0);
@@ -26,8 +27,8 @@ export default function Play(back) {
         }    
     })
     this.stop.addEventListener("click",()=> {
-        this.playButton.innerHTML = "play_arrow"; 
-        this.play.play = true;
+        this.playButton.click();
+        setTimeout(()=> {this.play.play = true},this.spid * 1000);
         this.play.functions = [];
         this.play.back.innerHTML = "";
         indexContext.get("avionRestart")(localStorage.getItem("level")-1 || 0);
